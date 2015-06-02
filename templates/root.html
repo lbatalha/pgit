@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Repo List</title>
+</head>
+<body>
+	<ul id="dirlist">
+	{% for i in dirlist %}
+	<li>
+		<a href="{{ i }}">{{ i }}</a>
+	</li>
+	{% endfor %}
+	</ul>
+
+	
+	</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{{ repo_name }}</title>
+</head>
+<body>
+	<ul id="dirlist">
+	{% for i in files %}
+	<li>
+		{{ i }}	
+	</li>
+	{% endfor %}
+	</ul>
+	
+	</body>
+</html>
