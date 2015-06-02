@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>{{ repo_name }}</title>
+	<title>{{ repo.path }}</title>
 </head>
 <body>
 	<ul id="dirlist">
-	{% for i in files %}
+	{% for entry in files %}
 	<li>
-		{{ i }}	
+		<a href="{{ repo.read(entry.id) }}">{{ entry.name }}</a>
 	</li>
 	{% endfor %}
 	</ul>

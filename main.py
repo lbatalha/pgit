@@ -16,14 +16,12 @@ def dir_list(repo_name):
 	path = root + repo_name
 	repo = pygit2.Repository(path)
 	commit = repo.revparse_single('master')
-	list = [];
+	files = [];
+	
 	for entry in commit.tree:
-		#entry.id, entry.name
-		#obj = repo.get(entry.id)
-		#list.append(obj.read_raw())
-		files.append(entry.name)
-
-	return render_template('repo.html', files=files, repo_name=repo_name)
+		files.append(entry)
+		
+	return render_template('repo.html', files=files, repo=repo)
 
 
 if __name__ == '__main__':
