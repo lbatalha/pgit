@@ -23,7 +23,13 @@ def dir_list(repo_name):
 		
 	return render_template('repo.html', files=files, repo=repo)
 
-
+@app.route('/<repo_name>/<file_name>')
+def file_contents(repo_name, file_name):
+	path = root + repo_name
+	repo = pygit2.Repository(path)
+	obj = repo[tree[file_name]]
+	
+	return render_template('file.html', file_name=file_name, obj=obj)
 if __name__ == '__main__':
 	app.debug = True
 	app.run()
