@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 import os
 import pygit2
 from flask import Flask, render_template, url_for
@@ -19,7 +18,7 @@ def dir_list(repo_name):
 	files = [];
 	
 	for entry in commit.tree:
-		files.append(entry)
+		files += entry
 		
 	return render_template('repo.html', files=files, repo=repo)
 
@@ -29,10 +28,17 @@ def file_contents(repo_name, file_path):
 	path = root + repo_name
 	repo = pygit2.Repository(path)
 	commit = repo.revparse_single('master')
+		
 	file_id = commit.tree[file_path].id
 	obj = repo.get(file_id)
-
-	return render_template('file.html', file_path=file_path, obj=obj, style=style)
+		
+	if(obj.type == pygit2.GIT_OBJ_TREE):
+		files = []
+		for entry in obj:
+			files += entry
+		return render_template('path.html', file_path=file_path, files=files)
+	else:
+		return render_template('file.html', file_path=file_path, obj=obj, style=style)
 
 if __name__ == '__main__':
 	app.debug = True

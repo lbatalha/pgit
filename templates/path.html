@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{{ file_path }}</title>
+	</head>
+	<body>
+		<ul id="dirlist">
+			{% for entry in files %
+			<li>
+				<a href="{{ entry }}">{{ entry }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+
+	</body>
+</html>
+
