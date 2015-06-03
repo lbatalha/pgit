@@ -2,7 +2,8 @@
 <html lang="en">
 	<head>
 		<title>{{ file_path }}</title>
-		<link rel="stylesheet" type="text/css" href="{{ style }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/file.css')
+		}}">
 	</head>
 	<body>
 		<code>{{ obj.read_raw().decode('utf8') }}</code>

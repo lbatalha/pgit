@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>{{ repo.path }}</title>
-</head>
-<body>
-	<ul id="dirlist">
-	{% for entry in files %}
-	<li>
-		<a href="{{ entry.name }}">{{ entry.name }}</a>
-	</li>
-	{% endfor %}
-	</ul>
-	
+	<head>
+		<title>{{ repo.path }}</title>
+	</head>
+	<body>
+		<ul id="dirlist">
+			{% for entry in files %}
+			<li>
+				<a href="{{ entry.name }}">{{ entry.name }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+
 	</body>
 </html>

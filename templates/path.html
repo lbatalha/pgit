@@ -5,9 +5,9 @@
 	</head>
 	<body>
 		<ul id="dirlist">
-			{% for entry in files %
+			{% for entry in files %}
 			<li>
-				<a href="{{ entry }}">{{ entry }}</a>
+				<a href="{{ entry.name }}">{{ entry.name }}</a>
 			</li>
 			{% endfor %}
 		</ul>
