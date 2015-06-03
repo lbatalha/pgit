@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>{{ file }}</title>
+		<title>{{ file_path }}</title>
+		<link rel="stylesheet" type="text/css" href="/static/styles/file.css">
 	</head>
 	<body>
-		<code>{{ obj.read_raw() }}</code>
+		<code>{{ obj.read_raw().decode('utf8') }}</code>
 	</body>
 </html>
 
