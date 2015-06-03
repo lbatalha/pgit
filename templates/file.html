@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<title>{{ file_path }}</title>
-		<link rel="stylesheet" type="text/css" href="/static/styles/file.css">
+		<link rel="stylesheet" type="text/css" href="{{ style }}">
 	</head>
 	<body>
 		<code>{{ obj.read_raw().decode('utf8') }}</code>

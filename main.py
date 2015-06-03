@@ -25,14 +25,14 @@ def dir_list(repo_name):
 
 @app.route('/<repo_name>/<path:file_path>')
 def file_contents(repo_name, file_path):
-	url_for('static', filename='styles/file.css')
+	style = url_for('static', filename='styles/file.css')
 	path = root + repo_name
 	repo = pygit2.Repository(path)
 	commit = repo.revparse_single('master')
 	file_id = commit.tree[file_path].id
 	obj = repo.get(file_id)
 
-	return render_template('file.html', file_path=file_path, obj=obj)
+	return render_template('file.html', file_path=file_path, obj=obj, style=style)
 
 if __name__ == '__main__':
 	app.debug = True
