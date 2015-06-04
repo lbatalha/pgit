@@ -11,28 +11,22 @@ def repo_list():
 	return render_template('root.html', dirlist=os.listdir(ROOT), ROOT=ROOT)
 
 @app.route('/<repo_name>/')
-def dir_list(repo_name):
-	path = ROOT + repo_name
-	repo = pygit2.Repository(path)
-	commit = repo.revparse_single('master')
-	files = []
-
-	for entry in commit.tree:
-		files.append(entry)
-
-	return render_template('repo.html', files=files, repo=repo)
-
 @app.route('/<repo_name>/<path:file_path>')
-def file_contents(repo_name, file_path):
+def file_contents(repo_name, file_path=None):
+	files = []
 	path = ROOT + repo_name
 	repo = pygit2.Repository(path)
 	commit = repo.revparse_single('master')
+
+	if file_path == None:			#Check for Repo List
+		for entry in commit.tree:
+			files.append(entry)
+		return render_template('repo.html', files=files, repo=repo)
 
 	file_id = commit.tree[file_path].id
 	obj = repo.get(file_id)
 
-	if obj.type == pygit2.GIT_OBJ_TREE:
-		files = []
+	if obj.type == pygit2.GIT_OBJ_TREE:	#Check if its a directory
 		file_path += '/'
 		obj = repo[obj.id]
 		for entry in obj:
