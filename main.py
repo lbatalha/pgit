@@ -1,6 +1,13 @@
 import os
+
 import pygit2
+
 from flask import Flask, render_template, url_for
+
+from pygments import highlight
+from pygments.lexers import get_lexer_for_filename
+from pygments.formatters import HtmlFormatter
+from pygments.styles import get_style_by_name
 
 app = Flask(__name__)
 
@@ -34,7 +41,13 @@ def file_contents(repo_name, file_path=None):
 		return render_template('path.html', file_path=file_path, files=files)
 	else:
 		obj = repo[obj.id]
-		return render_template('file.html', file_path=file_path, obj=obj)
+		content = obj.read_raw().decode('utf8')
+		lexer = get_lexer_for_filename(file_path, stripall=True)
+		formatter = HtmlFormatter(linenos=True, cssclass='source')
+		#f = open('workfile', 'w')	#write style to file
+		#f.write(HtmlFormatter(style='monokai').get_style_defs())
+		result = highlight(content, lexer, formatter)
+		return render_template('file.html', file_path=file_path, result=result)
 
 if __name__ == '__main__':
 	app.debug = True
