@@ -6,6 +6,10 @@
 	<body>
 		<ul id="dirlist">
 			
+			<form action="commits">
+				<input type="submit" value="Commits">
+			</form>
+
 			{% for entry in files %}
 			<li>
 				<a href="{{ entry.name }}">{{ entry.name }}</a>

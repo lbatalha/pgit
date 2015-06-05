@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>{{ repo_name }} Commit History</title>
+	</head>
+	<body>
+		<ul id="dirlist">
+			{% for commit in commit_list %}
+			<li>
+				{{ commit.message }}
+			</li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>
+
