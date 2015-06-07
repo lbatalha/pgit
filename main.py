@@ -30,7 +30,7 @@ def repo_list():
 
 @app.route('/<repo_name>/<branch>')
 @app.route('/<repo_name>/<branch>/<path:file_path>')
-def file_contents(repo_name, branch='master', file_path=None):
+def file_contents(repo_name, branch, file_path=None):
 	files = []
 	path = ROOT + repo_name
 	repo = pygit2.Repository(path)
@@ -62,7 +62,7 @@ def file_contents(repo_name, branch='master', file_path=None):
 		return render_template('file.html', file_path=file_path, result=result, branch=branch)
 
 @app.route('/<repo_name>/<branch>/commits')
-def commit_list(repo_name, branch='master'):
+def commit_list(repo_name, branch):
 	commit_list = []
 	path = ROOT + repo_name
 	repo = pygit2.Repository(path)

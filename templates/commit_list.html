@@ -2,7 +2,8 @@
 
 <html lang="en">
 	<head>
-		<title>{{ repo_name }} Commit History</title>
+		<title>Commit History for {{ branch }} in {{ repo_name }} </title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
 	</head>
 	<body>
 		<ul id="dirlist">
