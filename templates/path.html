@@ -3,13 +3,13 @@
 
 <html lang="en">
 	<head>
-		<title>{{ file_path }}</title>
+		<title>{{ branch }}/{{ file_path }}</title>
 	</head>
 	<body>
 		<ul id="dirlist">
 			{% for entry in files %}
 			<li>
-				<a href="{{ file_path + entry.name }}">{{ entry.name }}</a>
+				<a href="{{ file_path }}{{ entry.name }}">{{ entry.name }}</a>
 			</li>
 			{% endfor %}
 		</ul>
