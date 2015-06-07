@@ -8,6 +8,7 @@ from functools import wraps
 #########	External Modules	#########
 
 import pygit2
+import pygments
 
 from pygit2 import GIT_SORT_TOPOLOGICAL, GIT_SORT_REVERSE
 
@@ -52,9 +53,12 @@ def file_contents(repo_name, branch='master', file_path=None):
 	else:
 		obj = repo[obj.id]
 		content = obj.read_raw().decode('utf8')
-		lexer = get_lexer_for_filename(file_path, stripall=True)
-		formatter = HtmlFormatter(linenos=True, cssclass='source')
-		result = highlight(content, lexer, formatter)
+		try:
+			lexer = get_lexer_for_filename(file_path, stripall=True)
+			formatter = HtmlFormatter(linenos=True, cssclass='source')
+			result = highlight(content, lexer, formatter)
+		except pygments.util.ClassNotFound:
+			result = content
 		return render_template('file.html', file_path=file_path, result=result, branch=branch)
 
 @app.route('/<repo_name>/<branch>/commits')
