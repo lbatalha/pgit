@@ -6,8 +6,8 @@
 	<body>
 		<ul id="dirlist">
 			
-			<a href="commits"> Commit List</a>
-
+			<a href="{{ branch}}/commits"> Commit List</a>
+			
 			{% for entry in files %}
 			<li>
 				<a href="{{ branch }}/{{ entry.name }}">{{ entry.name }}</a>

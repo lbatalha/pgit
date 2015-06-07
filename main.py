@@ -35,7 +35,7 @@ def file_contents(repo_name, branch='master', file_path=None):
 	path = ROOT + repo_name
 	repo = pygit2.Repository(path)
 	commit = repo.revparse_single(branch)
-
+	
 	if file_path == None:			#Check for Repo List
 		for entry in commit.tree:
 			files.append(entry)
@@ -66,8 +66,9 @@ def commit_list(repo_name, branch='master'):
 	commit_list = []
 	path = ROOT + repo_name
 	repo = pygit2.Repository(path)
-	
-	for commit in repo.walk(repo.head.target, GIT_SORT_TOPOLOGICAL):
+	reference = 'refs/heads/' + branch
+	reference = repo.lookup_reference(reference).resolve()	
+	for commit in repo.walk(reference.target, GIT_SORT_TOPOLOGICAL):
 		commit_list.append(commit)
 	
 	return render_template('commit_list.html', repo_name=repo_name, commit_list=commit_list)
