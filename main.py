@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python3
 #########	Builtins	#########
 import os, sys
 
@@ -23,13 +23,12 @@ app = Flask(__name__)
 
 ROOT = '/home/lbatalha/pgit_data/repos/'
 
-
 @app.route('/')
 def repo_list():
 	return render_template('root.html', dirlist=os.listdir(ROOT), ROOT=ROOT)
 
-@app.route('/<repo_name>/<branch>')
-@app.route('/<repo_name>/<branch>/<path:file_path>')
+@app.route('/r/<repo_name>/<branch>')
+@app.route('/r/<repo_name>/<branch>/<path:file_path>')
 def file_contents(repo_name, branch, file_path=None):
 	files = []
 	path = ROOT + repo_name
@@ -61,7 +60,7 @@ def file_contents(repo_name, branch, file_path=None):
 			result = content
 		return render_template('file.html', file_path=file_path, result=result, branch=branch)
 
-@app.route('/<repo_name>/<branch>/commits')
+@app.route('/r/<repo_name>/<branch>/commits')
 def commit_list(repo_name, branch):
 	commit_list = []
 	path = ROOT + repo_name

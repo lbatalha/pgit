@@ -2,3 +2,8 @@ body {
 	color: rgb(200,200,200);
 	background-color: black;
 }
+a:link{ color: #1975FF}
+a:visited{ color: #1975FF}
+a:hover{ color: #4791FF}
+
+

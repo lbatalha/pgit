@@ -1,6 +1,9 @@
 body {
 	background-color: black;
 }
+a:link{ color: #1975FF}
+a:visited{ color: #1975FF}
+a:hover{ color: #4791FF}
 
 .hll { background-color: #49483e }
 .c { color: #75715e } /* Comment */
