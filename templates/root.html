@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Repo List</title>
-</head>
-<body>
-	<ul id="dirlist">
-	{% for i in dirlist %}
-	<li>
-		<a href="/r/{{ i }}/master">{{ i }}</a>
-	</li>
-	{% endfor %}
-	</ul>
+	<head>
+		<title>Repo List</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+	</head>
+	<body>
+		<div id="main_div">
+			<div id="header">
+				<div id="title"><a href="/">pGit</a></div>
 
-	
+			</div>
+
+			<ul id="dirlist">
+				{% for i in dirlist %}
+				<li>
+					<a href="/r/{{ i }}/master">{{ i }}</a>
+				</li>
+				{% endfor %}
+			</ul>
+			<div id="footer">
+
+			</div>
+		</div>
 	</body>
 </html>

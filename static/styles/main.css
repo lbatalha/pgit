@@ -6,4 +6,31 @@ a:link{ color: #1975FF}
 a:visited{ color: #1975FF}
 a:hover{ color: #4791FF}
 
+#main_div{
+	width:1024px;
+	min-height:200px;
 
+}
+
+#header{
+	background-color:#5572A0;
+	font-color:#ffffff;
+
+}
+
+#title{
+
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size:60px;
+	font-family:sans-serif;	
+	text-align: center;
+	
+}
+
+#title a{
+	text-decoration:none;
+	color: #ffffff;
+}
