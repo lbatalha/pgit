@@ -6,16 +6,24 @@
 	</head>
 	<body>
 		<div id="main_div">
-			<div id="header">
-				<div id="title"><a href="/">pGit</a></div>      
+			<div id="header" class="flex-container">
+				<div id="title" class="er-block"><a href="/">pGit</a></div>      
+				<div id="branches" class="flex-item er-block">
+					<form name="branch_list">
+						<select id="dropdown" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;" value="GO">
+							<option selected="selected">{{ branch }}</option>
+							{% for i in branches %}
+								<option value="{{ i }}">{{ i }}</option>
+							{% endfor %}
+						</select>
+					</form>
 
+				</div>
+				<div id="commits" class="flex-item er-block"><a href="{{ branch }}/commits">Commits</a></div>
 			</div>
 
 
 			<ul id="dirlist">
-
-				<a href="{{ branch}}/commits"> Commit List</a>
-
 				{% for entry in files %}
 				<li>
 					<a href="{{ branch }}/{{ entry.name }}">{{ entry.name }}</a>

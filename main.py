@@ -33,12 +33,13 @@ def file_contents(repo_name, branch, file_path=None):
 	files = []
 	path = ROOT + repo_name
 	repo = pygit2.Repository(path)
+	branches = repo.listall_branches()
 	commit = repo.revparse_single(branch)
 	
 	if file_path == None:			#Check for Repo List
 		for entry in commit.tree:
 			files.append(entry)
-		return render_template('repo.html', files=files, repo=repo, branch=branch)
+		return render_template('repo.html', files=files, repo=repo, branch=branch, branches=branches)
 
 	file_id = commit.tree[file_path].id
 	obj = repo.get(file_id)
@@ -48,7 +49,7 @@ def file_contents(repo_name, branch, file_path=None):
 		obj = repo[obj.id]
 		for entry in obj:
 			files.append(entry)
-		return render_template('path.html', repo_name=repo_name, file_path=file_path, files=files, branch=branch)
+		return render_template('path.html', repo_name=repo_name, file_path=file_path, files=files, branch=branch, branches=branches)
 	else:
 		obj = repo[obj.id]
 		content = obj.read_raw().decode('utf8')
@@ -76,3 +77,4 @@ def commit_list(repo_name, branch):
 if __name__ == '__main__':
 	app.debug = True
 	app.run()
+

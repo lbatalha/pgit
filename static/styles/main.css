@@ -1,13 +1,45 @@
-body {
+html{
+}
+
+body{
 	color: rgb(200,200,200);
 	background-color: black;
+	
 }
-a:link{ color: #1975FF}
+
+a:link{ color: #1975FF; text-decoration: none;}
 a:visited{ color: #1975FF}
 a:hover{ color: #4791FF}
 
+select{
+	color: #ffffff;
+	background-color: #5572A0;
+	outline: 0px;
+	border: 0px;
+	font-size: 18px;
+}
+
+.flex-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-item{
+	flex-grow: 1;
+}
+
+.er-block{
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: center;
+	font-size: 18px;
+}
+
 #main_div{
-	width:1024px;
+	width: 512px;
 	min-height:200px;
 
 }
@@ -15,22 +47,29 @@ a:hover{ color: #4791FF}
 #header{
 	background-color:#5572A0;
 	font-color:#ffffff;
-
+	font-family:sans-serif;
+	border-radius: 15px;
 }
 
-#title{
-
-	margin-left:10px;
-	margin-right:10px;
-	margin-top:5px;
-	margin-bottom:5px;
-	font-size:60px;
-	font-family:sans-serif;	
-	text-align: center;
-	
-}
-
-#title a{
+#header a{
 	text-decoration:none;
 	color: #ffffff;
 }
+
+#title{
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 60px;
+}
+
+#branches{
+
+}
+
+#commits{
+
+}
+
+
