@@ -22,17 +22,19 @@
 				<div id="commits" class="flex-item er-block"><a href="{{ branch }}/commits">Commits</a></div>
 			</div>
 
+			<div id="path"><a href="/r/{{ repo_name }}/{{ branch }}">{{ repo_name }}</a>/{{ file_path }}</div>
+			<div id="filelist">
+				<ul id="dirlist">
+					{% for entry in files %}
+					<li class="flex-li">
+						<div id="filename" class="flex-li-div"><a href="{{ branch }}/{{ entry.name }}">{{ entry.name }}</a></div>
+						<div id="commit-msg" class="flex-li-div">commit message</div>
+						<div id="edit-time" class="flex-li-div">last edit</div>
+					</li>
+					{% endfor %}
 
-			<ul id="dirlist">
-                                {% for entry in files %}
-				<li class="flex-li">
-					<div id="filename" class="flex-li-div"><a href="{{ branch }}/{{ entry.name }}">{{ entry.name }}</a></div>
-					<div id="commit-msg" class="flex-li-div">commit message</div>
-					<div id="edit-time" class="flex-li-div">last edit</div>
-				</li>
-				{% endfor %}
-
-			</ul>
+				</ul>
+			</div>
 			<div id="footer">
 
 			</div>

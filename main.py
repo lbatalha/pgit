@@ -39,7 +39,7 @@ def file_contents(repo_name, branch, file_path=None):
 	if file_path == None:			#Check for Repo List
 		for entry in commit.tree:
 			files.append(entry)
-		return render_template('repo.html', files=files, repo=repo, branch=branch, branches=branches)
+		return render_template('repo.html', files=files, repo_name=repo_name, repo=repo, branch=branch, branches=branches)
 
 	file_id = commit.tree[file_path].id
 	obj = repo.get(file_id)

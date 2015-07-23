@@ -3,18 +3,20 @@ html{
 }
 
 body{
+	color: #2C5475;
 	background-color: black;
 	margin: 20px;
 	width: auto;
 	font-family: Droid Sans, sans-serif;		
 }
 
-a:link{ color: #1789EB; text-decoration: none;}
-a:visited{ color: #1789EB}
-a:hover{ color: #1995FF}
+a:link{ color: #2C5475; text-decoration: none;}
+a:visited{ color: #4D6792}
+a:hover{ color: #B6603C}
+
 
 select{
-	color: #d6d6d6;
+	color: #297C5B;
 	background-color: black;
 	outline: 0px;
 	border: 0px;
@@ -22,6 +24,8 @@ select{
 }
 
 ul{
+	margin: 0;
+	padding: 0;
 	list-style: none;
 }
 
@@ -56,6 +60,9 @@ ul{
 	flex-basis: auto;
 	text-align: left;
 	margin: auto;
+	border-style: dotted;
+	border-width: 0px 0px 1px 0px;
+	border-color: #111111;
 }
 
 #filename{
@@ -80,10 +87,10 @@ ul{
 
 #header{
 
-	background-color: #0;
-	font-color: #d6d6d6;
+	
+	font-color: #64A135;
 	border-radius: 15px;
-	border-color: #525252;
+	border-color: #062943;
 	border-width: 0px 3px 0px 3px;
 	border-style: solid;
 }
@@ -91,7 +98,7 @@ ul{
 
 #header a{
 	text-decoration: none;
-	color: #d6d6d6;
+	color: #297C5B;
 }
 
 #title{
@@ -103,7 +110,7 @@ ul{
 	
 }
 #title a{
-	color:  #F38D00;
+	color: #479676;
 	font-family: Droid Sans Mono, monospace;
 }
 #branches{
@@ -114,4 +121,15 @@ ul{
 
 }
 
+#path{
+	padding: 10px;
+}
 
+#path a:link{ color: #2C5475; text-decoration: none;}
+#path a:visited{ color: #4D6792}
+#path a:hover{ color: #B6603C}
+
+
+#filelist{
+	padding: 10px;
+}
