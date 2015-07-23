@@ -1,23 +1,30 @@
 html{
+
 }
 
 body{
-	color: rgb(200,200,200);
 	background-color: black;
-	
+	margin: 20px;
+	width: auto;
+	font-family: Droid Sans, sans-serif;		
 }
 
-a:link{ color: #1975FF; text-decoration: none;}
-a:visited{ color: #1975FF}
-a:hover{ color: #4791FF}
+a:link{ color: #1789EB; text-decoration: none;}
+a:visited{ color: #1789EB}
+a:hover{ color: #1995FF}
 
 select{
-	color: #ffffff;
-	background-color: #5572A0;
+	color: #d6d6d6;
+	background-color: black;
 	outline: 0px;
 	border: 0px;
 	font-size: 18px;
 }
+
+ul{
+	list-style: none;
+}
+
 
 .flex-container{
 	display: flex;
@@ -26,7 +33,8 @@ select{
 }
 
 .flex-item{
-	flex-grow: 1;
+	flex-grow: 0;
+	flex-basis: auto;
 }
 
 .er-block{
@@ -38,32 +46,66 @@ select{
 	font-size: 18px;
 }
 
-#main_div{
-	width: 512px;
-	min-height:200px;
+.flex-li{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.flex-li-div{
+	flex-grow: 1;
+	flex-basis: auto;
+	text-align: left;
+	margin: auto;
+}
 
+#filename{
+	width: 150px;
+}
+
+#commit-msg{
+	color: #828282;
+}
+
+#edit-time{
+	text-align: right;
+	color: #828282;
+}
+
+#main_div{
+	width: 720px;
+	min-height:200px;
+	margin: 0 auto;
+	
 }
 
 #header{
-	background-color:#5572A0;
-	font-color:#ffffff;
-	font-family:sans-serif;
+
+	background-color: #0;
+	font-color: #d6d6d6;
 	border-radius: 15px;
+	border-color: #525252;
+	border-width: 0px 3px 0px 3px;
+	border-style: solid;
 }
 
+
 #header a{
-	text-decoration:none;
-	color: #ffffff;
+	text-decoration: none;
+	color: #d6d6d6;
 }
 
 #title{
 	margin-left: 20px;
-	margin-right: 20px;
+	margin-right: 50px;
 	margin-top: 15px;
 	margin-bottom: 15px;
-	font-size: 60px;
+	font-size: 32px;
+	
 }
-
+#title a{
+	color:  #F38D00;
+	font-family: Droid Sans Mono, monospace;
+}
 #branches{
 
 }

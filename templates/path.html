@@ -10,26 +10,29 @@
 	<body>
 		<div id="main_div">
 			<div id="header" class="flex-container">
-				<div id="title" class="er-block"><a href="/">pGit</a></div>      
+				<div id="title" class="flex-item er-block"><a href="/">pgit</a></div>      
 				<div id="branches" class="flex-item er-block">
 					<form name="branch_list">
 						<select id="dropdown" name="menu" onChange="top.location.href=this.options[this.selectedIndex].value;" value="GO">
 							<option selected="selected">{{ branch }}</option>
 							{% for i in branches %}
-								<option value="{{ i }}">{{ i }}</option>
+							<option value="/r/{{ repo_name }}/{{ i }}/{{ file_path }}">{{ i }}</option>
 							{% endfor %}
 						</select>
 					</form>
 
 				</div>
-				<div id="commits" class="flex-item er-block"><a href="{{ branch }}/commits">Commits</a></div>
+
+				<div id="commits" class="flex-item er-block"><a href="/r/{{repo_name}}/{{ branch }}/commits">Commits</a></div>
 			</div>
 
 
 			<ul id="dirlist">
 				{% for entry in files %}
-				<li>
-					<a href="{{ file_path }}{{ entry.name }}">{{ entry.name }}</a>
+				<li class="flex-li">
+					<div id="filename" class="flex-li-div"><a href="{{ file_path }}{{ entry.name }}">{{ entry.name }}</a></div>
+					<div id="commit-msg" class="flex-li-div">commit message</div>
+					<div id="edit-time" class="flex-li-div">last edit</div>
 				</li>
 				{% endfor %}
 			</ul>

@@ -44,8 +44,7 @@ def file_contents(repo_name, branch, file_path=None):
 	file_id = commit.tree[file_path].id
 	obj = repo.get(file_id)
 
-	if obj.type == pygit2.GIT_OBJ_TREE:	#Check if its a directory
-		file_path += '/'
+	if obj.type == pygit2.GIT_OBJ_TREE:	#Check if its a tree
 		obj = repo[obj.id]
 		for entry in obj:
 			files.append(entry)
@@ -77,4 +76,5 @@ def commit_list(repo_name, branch):
 if __name__ == '__main__':
 	app.debug = True
 	app.run()
+
 
