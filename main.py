@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-#########	Builtins	#########
+
 import os, sys
 
 from datetime import datetime
 from functools import wraps
 
-#########	External Modules	#########
+################################
 
 import pygit2
 import pygments
@@ -42,8 +42,9 @@ def file_contents(repo_name, branch, file_path=None):
 		return render_template('repo.html', files=files, repo_name=repo_name, repo=repo, branch=branch, branches=branches)
 
 	file_id = commit.tree[file_path].id
+	
 	obj = repo.get(file_id)
-
+	
 	if obj.type == pygit2.GIT_OBJ_TREE:	#Check if its a tree
 		obj = repo[obj.id]
 		for entry in obj:
@@ -69,9 +70,7 @@ def commit_list(repo_name, branch):
 	reference = repo.lookup_reference(reference).resolve()	
 	for commit in repo.walk(reference.target, GIT_SORT_TOPOLOGICAL):
 		commit_list.append(commit)
-	
 	return render_template('commit_list.html', repo_name=repo_name, commit_list=commit_list)
-
 
 if __name__ == '__main__':
 	app.debug = True
